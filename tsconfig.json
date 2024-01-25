@@ -1,6 +1,24 @@
 {
-  "extends": "expo/tsconfig.base",
+  "type": "module",
   "compilerOptions": {
-    "strict": true
-  }
+    "target": "esnext",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*.ts",
+    "server/*.ts",
+    "src/**/*.ts",
+    "node_modules/expo/**/*.d.ts",
+    "node_modules/react-redux/index.d.ts"
+, "src/screens/blog/index.tsx", "src/interfaces/axios.ts"  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "extends": "expo/tsconfig.base"
 }

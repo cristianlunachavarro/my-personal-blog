@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "./dist", // Carpeta donde se colocarán los archivos compilados
+      "rootDir": "./", // El directorio raíz de tus archivos fuente es el directorio actual
+      "resolveJsonModule": true,
+      "moduleResolution": "node",
+      "isolatedModules": true,
+      "jsx": "react"
+    },
+    "include": ["./**/*.ts", "./**/*.d.ts"],
+    "exclude": ["node_modules", "dist"]
+  }
+  
