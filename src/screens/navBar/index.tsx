@@ -15,8 +15,6 @@ import styles from "./styles";
 const NavBar = () => {
   const navigation = useNavigation();
 
-  console.log(window.history);
-
   const { blogs, blog, cleanBlog } = useContext(BlogContext);
   const { logoutUser } = useContext(UserContext);
 
