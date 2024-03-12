@@ -1,20 +1,17 @@
 import { User } from "../../interfaces/user";
 import { ActionTypes } from "../../constants";
 
-interface UserState {
+export interface UserState {
   error: string;
   user: User | {};
 }
 
 export const USER_INITIAL_STATE: UserState = {
   error: "",
-  user: {
-    _id: "",
-    username: "",
-  },
+  user: {},
 };
 
-type UserActionTypes =
+export type UserActionTypes =
   | { type: ActionTypes.REGISTER_SUCCESS; payload: User }
   | { type: ActionTypes.REGISTER_FAIL; payload: string }
   | { type: ActionTypes.LOGIN_SUCCESS; payload: User }

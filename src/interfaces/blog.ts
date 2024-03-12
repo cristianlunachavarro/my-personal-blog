@@ -7,6 +7,6 @@ export interface Blog {
 export interface Article {
   _id?: string;
   title?: string;
-  text?: string | null | undefined;
+  text?: string;
   images?: string[];
 }

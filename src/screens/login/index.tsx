@@ -1,15 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import { TouchableOpacity, View, Image } from "react-native";
 import { TextInput, Button, Text } from "react-native-paper";
-
 import { useNavigation } from "@react-navigation/native";
 
 import { UserContext } from "../../context/user/UserContext";
 
-import styles from "./styles";
+import Layout from "../layout";
 
 import eye from "../../assets/eye.png";
 
+import styles from "./styles";
 
 const Login = () => {
   const navigation = useNavigation();
@@ -20,7 +20,6 @@ const Login = () => {
   const [password, setPassword] = useState<string>("");
   const [localError, setLocalError] = useState<string>("");
   const [togglePassword, setTogglePassword] = useState<boolean>(false);
-
 
   const validateEmptyFields = () => {
     if (username.length > 0 && password.length > 0) {
@@ -35,7 +34,6 @@ const Login = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-  
 
   const handleUsername = (text: string) => {
     if (!isValidEmail(text)) {
@@ -71,11 +69,12 @@ const Login = () => {
   }, [error, localError]);
 
   return (
-    <>
+    <Layout>
       <TextInput
         label="Username"
         value={username}
         onChangeText={handleUsername}
+        style={styles.textInput}
       />
       <View style={styles.passwordContainer}>
         <TextInput
@@ -83,6 +82,7 @@ const Login = () => {
           value={password}
           onChangeText={handlePassword}
           secureTextEntry={!togglePassword}
+          style={styles.textInput}
         />
         <TouchableOpacity
           style={styles.toggleButton}
@@ -98,7 +98,7 @@ const Login = () => {
       {(localError || error) && (
         <Text style={styles.error}>{localError || error}</Text>
       )}
-    </>
+    </Layout>
   );
 };
 

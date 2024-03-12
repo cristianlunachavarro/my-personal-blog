@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
   error: {
     textAlign: "center",
     color: "red",
+  },
+  textInput: {
+    marginBottom: 10
   }
 });
 

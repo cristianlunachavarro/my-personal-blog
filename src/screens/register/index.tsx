@@ -5,22 +5,31 @@ import { TextInput, Button, Text } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { UserContext } from "../../context/user";
 
-import styles from "./styles";
-
 import eye from "../../assets/eye.png";
+
+import Layout from "../layout";
+
+import styles from "./styles";
 
 const Register = () => {
   const navigation = useNavigation();
 
   const { registerUser, cleanError, error } = useContext(UserContext);
 
+  const [name, setName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [localError, setLocalError] = useState<string>("");
   const [togglePassword, setTogglePassword] = useState<boolean>(false);
 
   const validateEmptyFields = () => {
-    if (username.length > 0 && password.length > 0) {
+    if (
+      username.length > 0 &&
+      password.length > 0 &&
+      name.length > 0 &&
+      lastName.length > 0
+    ) {
       setLocalError("");
       return true;
     }
@@ -31,6 +40,14 @@ const Register = () => {
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  };
+
+  const handleName = (text: string) => {
+    setName(text);
+  };
+
+  const handleLastName = (text: string) => {
+    setLastName(text);
   };
 
   const handleUsername = (text: string) => {
@@ -52,7 +69,7 @@ const Register = () => {
 
   const handleSubmit = () => {
     if (validateEmptyFields()) {
-      registerUser(username, password);
+      registerUser(name, lastName, username, password);
     }
     return;
   };
@@ -67,11 +84,24 @@ const Register = () => {
   }, [error, localError]);
 
   return (
-    <View>
+    <Layout>
       <TextInput
-        label="Username"
+        label="Name"
+        value={name}
+        onChangeText={handleName}
+        style={styles.textInput}
+      />
+      <TextInput
+        label="Last name"
+        value={lastName}
+        onChangeText={handleLastName}
+        style={styles.textInput}
+      />
+      <TextInput
+        label="Email"
         value={username}
         onChangeText={handleUsername}
+        style={styles.textInput}
       />
       <View style={styles.passwordContainer}>
         <TextInput
@@ -79,6 +109,7 @@ const Register = () => {
           value={password}
           onChangeText={handlePassword}
           secureTextEntry={!togglePassword}
+          style={styles.textInput}
         />
         <TouchableOpacity
           style={styles.toggleButton}
@@ -94,7 +125,7 @@ const Register = () => {
       {(localError || error) && (
         <Text style={styles.error}>{localError || error}</Text>
       )}
-    </View>
+    </Layout>
   );
 };
 

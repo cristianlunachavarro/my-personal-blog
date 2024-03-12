@@ -6,7 +6,8 @@ interface ColorStyles {
   lightViolet: string;
   coolGray: string;
   slateGray: string;
-  white: string
+  white: string;
+  red: string;
 }
 
 const colors = StyleSheet.create<ColorStyles>({
@@ -16,6 +17,7 @@ const colors = StyleSheet.create<ColorStyles>({
   coolGray: "#A3A5C3",
   slateGray: "#224244",
   white: "#fff",
+  red: "#ba2d20",
 });
 
 export default colors;

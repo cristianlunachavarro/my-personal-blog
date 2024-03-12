@@ -1,17 +1,27 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, FC, useContext } from "react";
+
+import styles from "./styles";
 
 import NavBar from "../navBar";
-import { View } from "react-native";
+import Error from "../error";
+import Loader  from "../loader"
+import { ScrollView, View } from "react-native";
+import { BlogContext } from "../../context/blog";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
+  const { isLoading }  = useContext(BlogContext)
   return (
-    <View>
+    <View style={styles.container}>
       <NavBar />
-      <View style={{ flex: 1 }}>{children}</View>
+      <ScrollView>
+        <View style={styles.content}>{children}</View>
+      </ScrollView>
+      <Loader isLoading={isLoading} />
+      <Error />
     </View>
   );
 };

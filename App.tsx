@@ -3,6 +3,7 @@ import Main from "./src/screens/main";
 import { NavigationContainer } from "@react-navigation/native";
 import { UserProvider } from "./src/context/user/UserProvider";
 import { MD2LightTheme, PaperProvider } from "react-native-paper";
+import { BlogProvider } from "./src/context/blog";
 
 const App: React.FC = () => {
   const theme = {
@@ -22,11 +23,13 @@ const App: React.FC = () => {
 
   return (
     <NavigationContainer>
-      <UserProvider>
-        <PaperProvider theme={theme}>
-          <Main />
-        </PaperProvider>
-      </UserProvider>
+      <BlogProvider>
+        <UserProvider>
+          <PaperProvider theme={theme}>
+            <Main />
+          </PaperProvider>
+        </UserProvider>
+      </BlogProvider>
     </NavigationContainer>
   );
 };

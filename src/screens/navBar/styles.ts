@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   drawerContainer: {
     position: "absolute",
     width: "100%",
+    zIndex: 1,
   },
   navContainer: {
     display: "flex",
@@ -15,18 +16,31 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     padding: 10,
-    backgroundColor: colors.coolGray,
     borderBottomWidth: 5,
+    backgroundColor: colors.coolGray,
     borderColor: colors.lightViolet,
     borderStyle: "solid",
     color: colors.white,
+  },
+  blogTitle: {
+    fontWeight: '700',
   },
   drawer: {
     marginTop: 10,
   },
   drawerItem: {
+    backgroundColor: colors.coolGray,
     color: colors.white,
     width: "40%",
+  },
+  blogDrawerItem: {
+    marginLeft: 20,
+  },
+  selectedItem: {
+    backgroundColor: colors.lightViolet,
+  },
+  notSelected: {
+    backgroundColor: colors.coolGray,
   },
 });
 

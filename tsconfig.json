@@ -16,7 +16,7 @@
     "src/**/*.ts",
     "node_modules/expo/**/*.d.ts",
     "node_modules/react-redux/index.d.ts"
-, "src/screens/blog/index.tsx", "src/interfaces/axios.ts"  ],
+, "src/screens/blogs/index.tsx", "src/interfaces/axios.ts"  ],
   "exclude": [
     "node_modules"
   ],

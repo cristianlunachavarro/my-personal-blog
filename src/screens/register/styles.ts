@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "red",
   },
+  textInput: {
+    marginBottom: 10
+  }
 });
 
 export default styles;
