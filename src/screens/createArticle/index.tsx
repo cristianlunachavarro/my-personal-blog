@@ -36,7 +36,7 @@ const CreateArticle = () => {
       setError({ error: true, message: "Some input/s are empty" });
       return;
     }
-
+    
     const article = {
       title: articleTitle,
       text: articleText,

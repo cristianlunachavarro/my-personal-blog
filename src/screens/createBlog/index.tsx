@@ -47,7 +47,7 @@ const CreateBlog = () => {
     const article = {
       title: articleTitle,
       text: articletext,
-      uriPhoto: uriPhoto,
+      images: uriPhoto,
     };
     createBlog(blogTitle, article, user._id);
   };

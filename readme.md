@@ -21,7 +21,6 @@ yarn install
 Start the React Native development server:
 yarn start
 
-###
 
 For server-related functionality, navigate to the server directory:
 cd server

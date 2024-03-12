@@ -57,7 +57,10 @@ export const createBlog = async (
       return {
         title: article.title || "Default Article Title",
         text: article.text || "Default Article Text",
-        images: article.images || ["https://i.imgur.com/2m55754.jpg"],
+        images:
+          article.length > 0
+            ? article.images
+            : ["https://i.imgur.com/2m55754.jpg"],
       };
     });
 
