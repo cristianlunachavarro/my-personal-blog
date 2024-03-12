@@ -7,6 +7,8 @@ const SALT_WORK_FACTOR = 10;
 export interface UserType extends Document {
   username: string;
   password: string;
+  name: string;
+  lastName: string;
   validatePassword(password: string): Promise<boolean>;
   blog: BlogType[];
 }
@@ -14,6 +16,8 @@ export interface UserType extends Document {
 const userSchema: Schema<UserType> = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  name: { type: String, required: true },
+  lastName: { type: String, required: true },
 });
 
 userSchema.pre("save", async function (next) {

@@ -17,7 +17,7 @@ export interface ArticlesType {
 const blogArticlesSchema = new mongoose.Schema({
   title: { type: String, required: true },
   text: { type: String },
-  images: [String], // Array de rutas a las imágenes
+  images: [String],
 });
 
 const blogSchema = new mongoose.Schema({
