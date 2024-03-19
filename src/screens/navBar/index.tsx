@@ -42,7 +42,7 @@ const NavBar = () => {
 
     navigation.navigate(path, { blogId });
     setShowBlogs(false);
-    handleToggleWrapper();
+    setShowDrawer(false)
   };
 
   return (
