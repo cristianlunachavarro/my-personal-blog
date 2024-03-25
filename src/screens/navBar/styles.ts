@@ -23,18 +23,29 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   blogTitle: {
-    fontWeight: '700',
+    fontWeight: "700",
   },
   drawer: {
     marginTop: 10,
+    marginLeft: 10
   },
   drawerItem: {
+    textAlign: 'left',
+    marginLeft: 0,
+    marginRight: 0,
+    margin: 0,
     backgroundColor: colors.coolGray,
     color: colors.white,
-    width: "40%",
+    width: "50%",
+  },
+  iconStyle: {
+    margin: 0,
   },
   blogDrawerItem: {
     marginLeft: 20,
+  },
+  centerText: {
+    textAlign: "center",
   },
   selectedItem: {
     backgroundColor: colors.lightViolet,

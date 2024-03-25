@@ -41,17 +41,16 @@ const Modal: FC<ModalProps> = ({
       visible={openModal}
       transparent={true}
       animationType="slide"
-      //   onRequestClose={setOpenModal}
     >
       <View style={styles.modalOverlay}>
         <View style={styles.modalContainer}>
           <Text>{text}</Text>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button}>
-              <Button onPress={handleCloseModal}>Cerrar</Button>
+              <Button onPress={handleCloseModal}>Close</Button>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button}>
-              <Button onPress={handleAcceptFunc}>Aceptar</Button>
+              <Button onPress={handleAcceptFunc}>Confirm</Button>
             </TouchableOpacity>
           </View>
         </View>

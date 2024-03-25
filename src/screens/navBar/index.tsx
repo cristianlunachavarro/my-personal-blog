@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Text, TouchableOpacity, View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Drawer } from "react-native-paper";
+import { Drawer, IconButton, TextInput } from "react-native-paper";
 
 import { UserContext } from "../../context/user/UserContext";
 import { BlogContext } from "../../context/blog";
 
 import tableRowIcon from "../../assets/tableRowIcon.png";
+import chevronRight from "../../assets/chevronRight.png";
+import chevronDown from "../../assets/chevronDown.png";
+import logout from "../../assets/logout.png";
+import addArticle from "../../assets/addArticle.png";
 
 import useAuthentication from "../../hooks/useAuthentication";
 
@@ -32,17 +36,16 @@ const NavBar = () => {
   };
 
   const handleShowBlogs = () => {
-    setShowBlogs(true);
+    setShowBlogs(!showBlogs);
   };
 
   const handleNavigate = (path: never, blogId = undefined) => {
     if (path !== "Blog") {
       cleanBlog();
     }
-
     navigation.navigate(path, { blogId });
     setShowBlogs(false);
-    setShowDrawer(false)
+    setShowDrawer(false);
   };
 
   return (
@@ -62,12 +65,15 @@ const NavBar = () => {
       </View>
       {showDrawer && (
         <View style={styles.drawer}>
-          <Drawer.Item
-            onPress={handleShowBlogs}
-            style={styles.drawerItem}
-            label="Blogs"
-            active={showDrawer}
-          />
+          <View>
+            <Drawer.Item
+              onPress={handleShowBlogs}
+              style={styles.drawerItem}
+              label="Blogs"
+              active={showDrawer}
+              icon={showBlogs ? chevronDown : chevronRight}
+            />
+          </View>
           {showBlogs && blogs.length > 0 && (
             <View style={[styles.blogDrawerItem]}>
               {blogs.map((b) => {
@@ -95,12 +101,14 @@ const NavBar = () => {
             label="Create New Blog"
             active={showDrawer}
             onPress={() => handleNavigate("Create New Blog")}
+            icon={addArticle}
           />
           <Drawer.Item
             style={styles.drawerItem}
             label="Logout"
             active={showDrawer}
             onPress={() => handleLogout()}
+            icon={logout}
           />
         </View>
       )}
